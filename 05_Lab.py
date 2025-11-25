@@ -1,0 +1,316 @@
+#! List
+# Uygulama içerisinde anlık olarak bizim için değer tutan yapılarıdr. Birden fazla tipte değerleri içerisinde barındırabilirler. List'ler RAM üzerinde tutulduğu için uygulama çalıştığı sürece üzerine eklenilen yeni değerleri tutatlar. Uygulama kapatıldığında ise ilk yaratıldıkları hale dönerler. örneğin futbol takımlarının tuutlduğu bir listem olsun.
+# futbol_takimlari = ['Galatasaray', 'Beşiktaş']
+# Bu liste içerisine uygulama run time'da iken 2 yeni takım daha eklenilsin
+# futbol_takimlari.append('Fenerbahçe')
+# futbol_takimlari.append('Trabzonspor')
+# Uygulama run time iken artık listemiz 4 elemanlıdır. Lakin uygulama kapatıldığında listemiz ilk haline yani 2 elemanlı haline döner.
+
+# Listeler index mantığı ile çalışmaktadır. Yani bir liste içeriisnde ki birinci elemen sıfırıncı index'te tutulur.
+# Örneğin:
+# print(futbol_takimlari[1])
+# Kodunu çalıştırırsak ekrana "Beşiktaş" yazdırılır. Bu mantıktan yola çıkarsak şunu diyebiliriz. Listeler sıfırncı index'ten başlayarak elemanlarını index'ler ve bu işlemi artı yönde bir bir arttırarak yaparlar.
+
+# Python içerisinde built-in olarak bulunan listelere uygulanılan built-in fonksiyonlar bulunumaktadır. BUnlardan bazıları, insert(), remove() örnek olarak verilebilinir.
+# print(futbol_takimlari)
+#
+#
+# top_boxers = ['Mike Tyson', 'Muhammed Ali', 'Lenox Lewis', 'Evander Holyfiled', 'Rocky Marciano']
+# append() => fonksiyonu ile listemizin sonuna yeni bir eleman ekleriz.
+# top_boxers.append('George Forman')
+# print(top_boxers)
+
+# insert() => bu fonksiyon listenin her hangi bir index değerine eleman ekleme işlemini yerine getirir. İlk parametreye index değerini ikinci parametreye ise eklenecek değeri.
+# favorite_boxer = input("Enter your favorite boxer: ")
+# top_boxers.insert(3, favorite_boxer)
+# print(top_boxers)
+
+# clear() => fonksiyonu listenin alayını temizler.
+
+# remove() => listeden silinecek item'ın yani değerin kendisini veriyoruz ve liseden onu silmektedir
+# top_boxers.remove('Evander Holyfiled')
+# print(top_boxers)
+
+# pop() => verilen index değerinde ki elemanı siler
+# top_boxers.pop(4)
+# print(top_boxers)
+
+# extend() => iki farklı listeyi birleştirmeye yarayan fonksiyondur.
+# current_boxers = ['Tyson Fury', 'Deantony Wilder', 'Antony Jasua']
+# top_boxers.extend(current_boxers)
+# print(top_boxers)
+#
+#
+# movie_list = ['Fight Club', 'Matrix', 'Interstaller', 'Inception', 'Fringe']
+#
+# for movie in movie_list:
+#     print(movie)
+
+
+# lenght_movie_list = len(movie_list)
+# for i in range(lenght_movie_list):
+#     print(movie_list[i])
+
+
+# region Example - 1
+# Bir liste içerisinde kullanıcının belirlediği kadar random sayı ile dolduralım
+# Üretilecek sayıların aralık bilgisini kullanıcıdan alalım.
+# Bu üretilen sayılardan kaç tanesi çift kaç tanesi tek bulup ekrana yazdıralım.
+# from random import randint
+#
+# sayi_listesi = []
+# cift_sayilar = 0
+# tek_sayilar = 0
+# uretilecek_sayi_miktari = int(input('Kaç tane sayı üretilsin: '))
+# baslangic_araligi = int(input("Üretilecek sayılar kaçtan başlasın: "))
+# bitis_araligi = int(input("Üretilecek sayılar kaçta bitsin: "))
+# for i in range(uretilecek_sayi_miktari):
+#     uretilen_sayi = randint(baslangic_araligi, bitis_araligi)
+#     if uretilen_sayi not in sayi_listesi:
+#         sayi_listesi.append(uretilen_sayi)
+#     else:
+#         i -= 1
+#     print(f'{i+1}. adımda üretilen sayı: {uretilen_sayi}')
+#
+# for item in sayi_listesi:
+#     if item % 2 == 0:
+#         cift_sayilar += 1
+#     else:
+#         tek_sayilar += 1
+#
+# print(f'Üretilen çift sayı miktarı: {cift_sayilar}\nÜretilen tek sayı miktarı: {tek_sayilar}')
+# endregion
+
+
+# region Example - 2
+# 2 farklı liste içerisine random olarak 10 adet sayı ile dolduralım.
+# Sayılar 0 ile 100 arasında üretilsin.
+# Listenin karşılıklı gelen index'lerinde tutulan değerleri toplayarak 3. bir listeye ekleyelim.
+# Listeler içerisinde index mantığı ile dolaşarak bu soruyu çözelim.
+# from random import randint
+# lst_1 = []
+# lst_2 = []
+# lst_3 = []
+# for i in range(10):
+#     lst_1.insert(i, randint(0, 100))
+#     lst_2.insert(i, randint(0, 100))
+#
+#     lst_3.insert(i, lst_1[i] + lst_2[i])
+#
+#     print(f'{lst_1[i]} + {lst_2[i]} = {lst_1[i] + lst_2[i]}')
+#
+# print(lst_3)
+# endregion
+
+
+# region Example - 4
+# Kullancıdan alınan söz öbeğini harf harf bir liste içerisne kayıt edin.
+# Boşluk karakterinin listeye eklenmesini istemiyoruz.
+# word = input("Say something .... : ")
+# characters = []
+# for char in word:
+#     if char == ' ':
+#         continue
+#     else:
+#         characters.append(char)
+#
+# print(characters)
+# endregion
+
+
+# region Example - 4
+# Kullancıdan alınan söz öbeğinde ki sesli harfleri bir listeye dolduralım
+# sesli_harfler = ['a', 'e', 'ı', 'i', 'o', 'ö', 'u', 'ü']
+# yakalanan_sesli_harfler = []
+# yakalanan_sayilar = []
+# cumle = input("Lütfen bir cümle yazın: ")
+# for karakter in cumle:
+#     if karakter in sesli_harfler:
+#         yakalanan_sesli_harfler.append(karakter)
+#     elif karakter == ' ':
+#         continue
+#     elif karakter.isdigit():  # isdigit() fonksiyonu ilgili karakterin sayı olup olmadığına bakar. sayı ise true değilse false döndürür.
+#         yakalanan_sayilar.append(karakter)
+#
+# print(yakalanan_sesli_harfler)
+# print(yakalanan_sayilar)
+# endregion
+
+
+# region Example - 5
+# Kullanıcıdan full adı alınacak. Örneğin Burak Yılmaz
+# 3 ve üzeri tam ad olma durumunu göz önünde bulundurun. BU senaryoda ilk isim ve soy isim kullanılsın.
+# burak.yilmaz@bilgeadam.com
+# endregion
+# full_name = input("Please type into full name: ").lower()
+# splited_full_name_list = full_name.split(" ")
+# mail_address = f'{splited_full_name_list[0]}.{splited_full_name_list[-1]}@bilgeadam.com'
+# print(mail_address)
+
+# region Example - 6
+# Sign in olurken kullanıcının şifresini kontrol edelim.
+# Şifre en az 16 karakterli olacak.
+# Noktalama işareti ieçrecek. Python'da hazır yapısı var.
+# En az bir tane büyük harf
+# En az bir küçük harf
+# en az bir rakarm içeriyorsa
+# şifre uygundur. her hangi birini içermiyorsa uygun değildir.
+from string import punctuation
+# password = input("Please type your password: ") .Bu1ffffffffffffffffffffffffffffffffffffffffffff
+# isDigit = False
+# isUpper = False
+# for char in password:
+#     if len(password) >= 16:
+#         pass
+#     if char in punctuation:
+#         pass
+#     if char.islower():
+#         pass
+#     if char.isupper():
+#         pass
+#     if char.isdigit():
+#         pass
+#
+#     if isDigit = True or isUpper = False
+# # endregion
+
+print(punctuation)
+
+qwe = input("Type: ")
+
+for i in qwe:
+    print(type(i))
+
+# region Example 8
+# sayilar = []  # burada içi boş bir liste tanımladık
+# for i in range(1, 10):
+#     sayilar.append(i)  # append() fonksiyonu ilgili listeye her bir adımda i sayacının üzerinde tutuğu değeri eklemeye yaradı.
+# print(sayilar)
+#
+# print([x for x in range(1, 10)])
+# endregion
+
+
+# region Example 9
+# rakamların karesini hespalayarak bir listeye dolduralım
+# rakamlar = []
+# for i in range(1, 10):
+#     rakamlar.append(i ** 2)
+# print(rakamlar)
+#
+# print([i * i for i in range(1, 10)])
+# endregion
+
+
+# region Example 10
+# 50 - 100 arasında 3 tam bölünen sayıları karesini alarak bir listeye ekleyim
+# sayilar = []
+# for i in range(50, 101):
+#     if i % 3 == 0:
+#         sayilar.append(i ** 2)
+# print(sayilar)
+#
+# print([i ** 2 for i in range(50, 101) if i % 3 == 0])
+# endregion
+
+
+# region Example 11
+# Kullanıcıdan bir söz öbeği alalım. boşluk olmayacak şekilde karakter karakter ekrana yazdıralım
+# word = input("Enter a word: ")
+# lst = []
+# for i in range(0, len(word), 1):
+#     if word[i] != " ":
+#         lst.append(word[i])
+# print(lst)
+# yukarıda ki örnekte bir string ifade içerisinde kurduğumuz döngü vasıtasyla index mantığıyla adım adım içerisinde dolaşarak çözüme gittik.
+# lst_1 = []
+# for char in word:
+#     if char == " ":
+#         continue
+#     lst_1.append(char)
+# print(lst_1)
+# buarda ki döngü de ise bir ifade içerisinde ki her bir karakteri döngü içerisine gönderdik. Yani adım adım karekterlerin kendisini gönderdik.
+
+# Bu örnek üzerinden şu yorumu yapabiliriz. C#, java, javascrip gibi programlama dilelrinde sayac mantığı çalışan for, python programlama dilinde hem sayaç hemde itarable mantığı ile çalışır. Yukarı da saydığımız programlama dillerinde itarable mantığını yürütmek için bir başka döngü tipi olan foreach kullanılamkatadır.
+# endregion
+
+# Aşağıda ki iki örnekte bir liste içerisinde ki index mantığı gösterilmektedir. Listelerde ki index mantığı sıfırdan başlar ve pozitif yönde vektörel olarak artarak devam eder.
+sayilar = [2, 2132, 45, 98]
+print(sayilar[1])  # sayilar listesinin 1. index'sinde tutulan değeri teslim eder.
+
+kelime = "burak yılmaz"
+print(kelime[6])  # kelime ifadesinin 6. index'sinde bulunan değeri teslim eder.
+
+
+# region Craft Mail Address
+#! users = ['Burak Yılmaz', 'Rana Nur Ceylan', 'İpek Yılmaz', 'Kerim Abdurrahman Burak Yılmaz']
+#? users listesindeki kullanıcılardan kurumsal mail adresi craft ediyoruz.
+#* sample mail address --> rana.ceylan@outlook.com
+#todo: craft mail address, mail_address listesine eklenerek ekrana basılacak
+#? Hint: split(), bir listenin uzunluğu ne olursa olsun son elemana nasıl get ederim
+
+users = ['Burak Yılmaz', 'Rana Nur Ceylan', 'İpek Yılmaz', 'Kerim Abdurrahman Burak Yılmaz']
+mail_addresses = []
+domain_name = '@outlook.com'
+
+for user in users:
+    user_names = user.lower().split(' ')     # ['burak','yılmaz']
+    mail_address = f"{user_names[0]}.{user_names[-1]}{domain_name}"
+    mail_addresses.append(mail_address)
+
+print(mail_addresses)
+
+# ÇIKTI: ['burak.yılmaz@outlook.com', 'rana.ceylan@outlook.com', 'ipek.yılmaz@outlook.com', 'kerim.yılmaz@outlook.com']
+# endregion
+
+
+# region Labwork
+#! end-user bir söz öbeği alalım
+#? sample --> buRaIk yi?lm2aZu
+#* sesli harfleri --> sesli_herfler = []
+#* sesssiz harfleri --> sessiz_harfler = []
+#* yazım hatalarını --> typo_characters = []
+#* space karekteri ignore edilecek.
+#* ilgili listelerdeki hiç bir eleman tekrar etemeyecek
+
+text = input("Metni giriniz: ")
+
+# Sesli ve sessiz harflerin tutulacağı listeler
+sesli_harfler = []
+sessiz_harfler = []
+
+# Typo karakterlerin tutulacağı liste
+typo_characters = []
+
+# Alfabe (kontrol için)
+alfabe = "abcçdefgğhıijklmnoöprsştuüvyz"
+
+# Sesli harfler
+sesliler = "aeıioöuü"
+
+# Metindeki her karakteri dolaşalım
+for ch in text.lower():      # küçük harfe çevir
+    if ch == " ":            # boşlukları geç
+        continue
+
+    if ch not in alfabe:
+        # Harf değilse typo listesine ekle (bir kere)
+        if ch not in typo_characters:
+            typo_characters.append(ch)
+        continue
+
+    # Sesli harf ise sesli listesine ekle
+    if ch in sesliler:
+        if ch not in sesli_harfler:
+            sesli_harfler.append(ch)
+    else:
+        # Sessiz harf ise sessiz listesine ekle
+        if ch not in sessiz_harfler:
+            sessiz_harfler.append(ch)
+
+# Sonuçları yazdıralım
+print("\n--- SONUÇLAR ---")
+print("Sesli harfler :", sesli_harfler)
+print("Sessiz harfler:", sessiz_harfler)
+print("Typo karakterler:", typo_characters)
+# endregion
